@@ -17,5 +17,12 @@ namespace CF_Bookstore.Entities.Entity.Concrete
         string Title { get; set; }
         int? TotalPage { get; set; }
         decimal? rating { get; set; }
+
+        public virtual ICollection<BookAuthor> BookAuthors { get; set; }
+        //override ToString
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }
