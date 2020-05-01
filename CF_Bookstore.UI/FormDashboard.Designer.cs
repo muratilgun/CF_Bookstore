@@ -533,9 +533,9 @@
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Location = new System.Drawing.Point(23, 59);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(95, 19);
+            this.lblFirstName.Size = new System.Drawing.Size(90, 19);
             this.lblFirstName.TabIndex = 1;
-            this.lblFirstName.Text = "First Name :";
+            this.lblFirstName.Text = "Full Name :";
             // 
             // txtLastName
             // 

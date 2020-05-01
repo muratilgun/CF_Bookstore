@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace CF_Bookstore.Entities.Entity.Concrete
 {
-    [Table("Books")]
-    public class Book : BaseEntity
+    public class Book
     {
-        [Key, Column(Order = 0)]
-        int BookId { get; set; }
-        string Title { get; set; }
-        int? TotalPage { get; set; }
-        decimal? rating { get; set; }
+        public int BookId { get; set; }
+        public string Title { get; set; }
+        public int? TotalPages { get; set; }
+        public decimal? Rating { get; set; }
+        public int ISBN { get; set; }
 
-        public virtual ICollection<BookAuthor> BookAuthors { get; set; }
-        //override ToString
+        public IList<BookAuthor> BookAuthors { get; set; }
         public override string ToString()
         {
             return Title;
         }
+
+
     }
 }

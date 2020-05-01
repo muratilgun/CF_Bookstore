@@ -59,6 +59,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CF_Bookstore.Entities\CF_Bookstore.Entities.csproj">
+      <Project>{B84D6FCA-860A-44F9-BA75-1DC1D5B3CC7C}</Project>
+      <Name>CF_Bookstore.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

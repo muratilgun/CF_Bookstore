@@ -9,18 +9,15 @@ using System.Threading.Tasks;
 
 namespace CF_Bookstore.Entities.Entity.Concrete
 {
-    [Table("Authors")]
-    public class Author :BaseEntity
+    public class Author
     {
-        [Key, Column(Order = 0)]
         public int AuthorId { get; set; }
         public string FullName { get; set; }
-
-        public virtual ICollection<BookAuthor> BookAuthors  { get; set; }
-        //override ToString
         public override string ToString()
         {
             return FullName;
         }
+        public IList<BookAuthor> BookAuthors { get; set; }
     }
+
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CF_Bookstore.Entities.Entity.Concrete.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,14 +12,14 @@ namespace CF_Bookstore.Entities.Entity.Concrete
     [Table("BookAuthors")]
     public class BookAuthor
     {
-        [Key, Column(Order = 0)]
-        public int BookAuthorsId { get; set; }
-        [Key, Column(Order = 1)]
-        public int BookId { get; set; }
-        [Key, Column(Order = 2)]
+        
+        [Column(Order =1)]
         public int AuthorId { get; set; }
-
-        public virtual Book Book { get; set; }
-        public virtual Author Author { get; set; }
+        [ForeignKey("AuthorId")]
+        public Author Author { get; set; }
+        [Column(Order = 2)]
+        public int BookId { get; set; }
+        [ForeignKey("BookId")]
+        public Book Book { get; set; }
     }
 }
