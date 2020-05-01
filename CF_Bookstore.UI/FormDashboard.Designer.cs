@@ -34,10 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gbxBook = new System.Windows.Forms.GroupBox();
             this.cmbAuthor = new System.Windows.Forms.ComboBox();
+            this.nudRating = new System.Windows.Forms.NumericUpDown();
             this.dtpPublDate = new System.Windows.Forms.DateTimePicker();
             this.txtPublisher = new System.Windows.Forms.TextBox();
             this.txtGenre = new System.Windows.Forms.TextBox();
-            this.btnAddBook = new System.Windows.Forms.Button();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.txtTotalPages = new System.Windows.Forms.TextBox();
             this.txtBookTitle = new System.Windows.Forms.TextBox();
@@ -46,12 +46,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudRating = new System.Windows.Forms.NumericUpDown();
+            this.btnAddBook = new System.Windows.Forms.Button();
             this.btnUpdateBook = new System.Windows.Forms.Button();
             this.btnDeleteBook = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -63,6 +63,8 @@
             this.txtFindByTitle = new System.Windows.Forms.TextBox();
             this.gbxBookOpr = new System.Windows.Forms.GroupBox();
             this.gbxAuthor = new System.Windows.Forms.GroupBox();
+            this.txtAuthorId = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblMiddleName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -73,13 +75,11 @@
             this.btnDeleteAuthor = new System.Windows.Forms.Button();
             this.btnAddAuthor = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGetAllAuthor = new System.Windows.Forms.Button();
+            this.btnListActiveAuthors = new System.Windows.Forms.Button();
+            this.btnListPassiveAuthors = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtAuthorId = new System.Windows.Forms.TextBox();
-            this.btnListPassiveAuthors = new System.Windows.Forms.Button();
-            this.btnListActiveAuthors = new System.Windows.Forms.Button();
-            this.btnGetAllAuthor = new System.Windows.Forms.Button();
             this.gbxFindByName = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cmbBookList = new System.Windows.Forms.ComboBox();
@@ -118,6 +118,7 @@
             this.btnExit.Size = new System.Drawing.Size(72, 67);
             this.btnExit.TabIndex = 3;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // pictureBox1
             // 
@@ -188,9 +189,29 @@
             this.cmbAuthor.Size = new System.Drawing.Size(174, 27);
             this.cmbAuthor.TabIndex = 4;
             // 
+            // nudRating
+            // 
+            this.nudRating.DecimalPlaces = 1;
+            this.nudRating.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.nudRating.Location = new System.Drawing.Point(112, 129);
+            this.nudRating.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudRating.Name = "nudRating";
+            this.nudRating.Size = new System.Drawing.Size(174, 27);
+            this.nudRating.TabIndex = 3;
+            this.nudRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // dtpPublDate
             // 
             this.dtpPublDate.CalendarFont = new System.Drawing.Font("NewsGoth BT", 12F, System.Drawing.FontStyle.Bold);
+            this.dtpPublDate.Enabled = false;
             this.dtpPublDate.Font = new System.Drawing.Font("NewsGoth BT", 10F, System.Drawing.FontStyle.Bold);
             this.dtpPublDate.Location = new System.Drawing.Point(112, 311);
             this.dtpPublDate.Name = "dtpPublDate";
@@ -199,28 +220,25 @@
             // 
             // txtPublisher
             // 
+            this.txtPublisher.Enabled = false;
+            this.txtPublisher.ForeColor = System.Drawing.Color.Red;
             this.txtPublisher.Location = new System.Drawing.Point(112, 272);
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(174, 27);
             this.txtPublisher.TabIndex = 1;
+            this.txtPublisher.Text = "Unavailable";
             this.txtPublisher.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtGenre
             // 
+            this.txtGenre.Enabled = false;
+            this.txtGenre.ForeColor = System.Drawing.Color.Red;
             this.txtGenre.Location = new System.Drawing.Point(112, 236);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(174, 27);
             this.txtGenre.TabIndex = 1;
+            this.txtGenre.Text = "Unavailable";
             this.txtGenre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnAddBook
-            // 
-            this.btnAddBook.Location = new System.Drawing.Point(6, 26);
-            this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(129, 31);
-            this.btnAddBook.TabIndex = 2;
-            this.btnAddBook.Text = "Add Book";
-            this.btnAddBook.UseVisualStyleBackColor = true;
             // 
             // txtISBN
             // 
@@ -275,6 +293,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Enabled = false;
             this.label16.Location = new System.Drawing.Point(10, 314);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(93, 19);
@@ -284,11 +303,21 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Enabled = false;
             this.label6.Location = new System.Drawing.Point(18, 275);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 19);
             this.label6.TabIndex = 0;
             this.label6.Text = "Publisher :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(39, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Rating :";
             // 
             // label4
             // 
@@ -320,39 +349,21 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Enabled = false;
             this.label9.Location = new System.Drawing.Point(42, 239);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 19);
             this.label9.TabIndex = 0;
             this.label9.Text = "Genre :";
             // 
-            // label5
+            // btnAddBook
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 131);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Rating :";
-            // 
-            // nudRating
-            // 
-            this.nudRating.DecimalPlaces = 1;
-            this.nudRating.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.nudRating.Location = new System.Drawing.Point(112, 129);
-            this.nudRating.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nudRating.Name = "nudRating";
-            this.nudRating.Size = new System.Drawing.Size(174, 27);
-            this.nudRating.TabIndex = 3;
-            this.nudRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAddBook.Location = new System.Drawing.Point(6, 26);
+            this.btnAddBook.Name = "btnAddBook";
+            this.btnAddBook.Size = new System.Drawing.Size(129, 31);
+            this.btnAddBook.TabIndex = 2;
+            this.btnAddBook.Text = "Add Book";
+            this.btnAddBook.UseVisualStyleBackColor = true;
             // 
             // btnUpdateBook
             // 
@@ -481,9 +492,26 @@
             this.gbxAuthor.TabStop = false;
             this.gbxAuthor.Text = "Author";
             // 
+            // txtAuthorId
+            // 
+            this.txtAuthorId.Location = new System.Drawing.Point(124, 20);
+            this.txtAuthorId.Name = "txtAuthorId";
+            this.txtAuthorId.Size = new System.Drawing.Size(171, 27);
+            this.txtAuthorId.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(33, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 19);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Author Id :";
+            // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.Enabled = false;
             this.lblLastName.Location = new System.Drawing.Point(25, 125);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(93, 19);
@@ -493,6 +521,7 @@
             // lblMiddleName
             // 
             this.lblMiddleName.AutoSize = true;
+            this.lblMiddleName.Enabled = false;
             this.lblMiddleName.Location = new System.Drawing.Point(6, 92);
             this.lblMiddleName.Name = "lblMiddleName";
             this.lblMiddleName.Size = new System.Drawing.Size(112, 19);
@@ -510,17 +539,25 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.Enabled = false;
+            this.txtLastName.ForeColor = System.Drawing.Color.Red;
             this.txtLastName.Location = new System.Drawing.Point(124, 122);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(171, 27);
             this.txtLastName.TabIndex = 0;
+            this.txtLastName.Text = "Unavailable";
+            this.txtLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtMiddleName
             // 
+            this.txtMiddleName.Enabled = false;
+            this.txtMiddleName.ForeColor = System.Drawing.Color.Red;
             this.txtMiddleName.Location = new System.Drawing.Point(124, 89);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(171, 27);
             this.txtMiddleName.TabIndex = 0;
+            this.txtMiddleName.Text = "Unavailable";
+            this.txtMiddleName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtFirstName
             // 
@@ -575,46 +612,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Author Operations";
             // 
-            // flowLayoutPanel1
+            // btnGetAllAuthor
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(461, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 440);
-            this.flowLayoutPanel1.TabIndex = 12;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(461, 292);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 18);
-            this.flowLayoutPanel2.TabIndex = 12;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(33, 23);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 19);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Author Id :";
-            // 
-            // txtAuthorId
-            // 
-            this.txtAuthorId.Location = new System.Drawing.Point(124, 20);
-            this.txtAuthorId.Name = "txtAuthorId";
-            this.txtAuthorId.Size = new System.Drawing.Size(171, 27);
-            this.txtAuthorId.TabIndex = 3;
-            // 
-            // btnListPassiveAuthors
-            // 
-            this.btnListPassiveAuthors.Location = new System.Drawing.Point(151, 71);
-            this.btnListPassiveAuthors.Name = "btnListPassiveAuthors";
-            this.btnListPassiveAuthors.Size = new System.Drawing.Size(129, 29);
-            this.btnListPassiveAuthors.TabIndex = 9;
-            this.btnListPassiveAuthors.Text = "List Passive Books";
-            this.btnListPassiveAuthors.UseVisualStyleBackColor = true;
+            this.btnGetAllAuthor.Location = new System.Drawing.Point(151, 110);
+            this.btnGetAllAuthor.Name = "btnGetAllAuthor";
+            this.btnGetAllAuthor.Size = new System.Drawing.Size(129, 29);
+            this.btnGetAllAuthor.TabIndex = 7;
+            this.btnGetAllAuthor.Text = "List All Authors";
+            this.btnGetAllAuthor.UseVisualStyleBackColor = true;
             // 
             // btnListActiveAuthors
             // 
@@ -630,14 +635,30 @@
             this.btnListActiveAuthors.Text = "List Active Books";
             this.btnListActiveAuthors.UseVisualStyleBackColor = false;
             // 
-            // btnGetAllAuthor
+            // btnListPassiveAuthors
             // 
-            this.btnGetAllAuthor.Location = new System.Drawing.Point(151, 110);
-            this.btnGetAllAuthor.Name = "btnGetAllAuthor";
-            this.btnGetAllAuthor.Size = new System.Drawing.Size(129, 29);
-            this.btnGetAllAuthor.TabIndex = 7;
-            this.btnGetAllAuthor.Text = "List All Authors";
-            this.btnGetAllAuthor.UseVisualStyleBackColor = true;
+            this.btnListPassiveAuthors.Location = new System.Drawing.Point(151, 71);
+            this.btnListPassiveAuthors.Name = "btnListPassiveAuthors";
+            this.btnListPassiveAuthors.Size = new System.Drawing.Size(129, 29);
+            this.btnListPassiveAuthors.TabIndex = 9;
+            this.btnListPassiveAuthors.Text = "List Passive Books";
+            this.btnListPassiveAuthors.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(461, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 440);
+            this.flowLayoutPanel1.TabIndex = 12;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(461, 292);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(739, 18);
+            this.flowLayoutPanel2.TabIndex = 12;
             // 
             // gbxFindByName
             // 
@@ -754,7 +775,7 @@
             this.Controls.Add(this.gbxBookAuthor);
             this.Font = new System.Drawing.Font("NewsGoth BT", 12F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDashboard";

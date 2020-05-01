@@ -16,5 +16,18 @@ namespace CF_Bookstore.UI
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            using (FormDashboard formDashboard = new FormDashboard())
+            {
+                formDashboard.ShowDialog();
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
