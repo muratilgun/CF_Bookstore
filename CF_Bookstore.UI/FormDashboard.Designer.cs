@@ -31,9 +31,13 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBAEnable = new System.Windows.Forms.Button();
+            this.btnAuthorEnable = new System.Windows.Forms.Button();
+            this.btnBookEnable = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.gbxBook = new System.Windows.Forms.GroupBox();
-            this.cmbAuthor = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.nudRating = new System.Windows.Forms.NumericUpDown();
             this.dtpPublDate = new System.Windows.Forms.DateTimePicker();
             this.txtPublisher = new System.Windows.Forms.TextBox();
@@ -43,7 +47,6 @@
             this.txtBookTitle = new System.Windows.Forms.TextBox();
             this.txtBookId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,6 +66,8 @@
             this.txtFindByTitle = new System.Windows.Forms.TextBox();
             this.gbxBookOpr = new System.Windows.Forms.GroupBox();
             this.gbxAuthor = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtAuthorId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -74,7 +79,7 @@
             this.btnUpdateAuthor = new System.Windows.Forms.Button();
             this.btnDeleteAuthor = new System.Windows.Forms.Button();
             this.btnAddAuthor = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxAuthorOpr = new System.Windows.Forms.GroupBox();
             this.btnGetAllAuthor = new System.Windows.Forms.Button();
             this.btnListActiveAuthors = new System.Windows.Forms.Button();
             this.btnListPassiveAuthors = new System.Windows.Forms.Button();
@@ -89,6 +94,8 @@
             this.gbxBookAuthor = new System.Windows.Forms.GroupBox();
             this.cmbAuthorList = new System.Windows.Forms.ComboBox();
             this.btnActiveBookAuthors = new System.Windows.Forms.Button();
+            this.lblBookShow = new System.Windows.Forms.Label();
+            this.lblBookOpShow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbxBook.SuspendLayout();
@@ -97,7 +104,7 @@
             this.gbxFindByTitle.SuspendLayout();
             this.gbxBookOpr.SuspendLayout();
             this.gbxAuthor.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbxAuthorOpr.SuspendLayout();
             this.gbxFindByName.SuspendLayout();
             this.gbxBookAuthor.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +140,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.btnBAEnable);
+            this.panel1.Controls.Add(this.btnAuthorEnable);
+            this.panel1.Controls.Add(this.btnBookEnable);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label2);
@@ -141,6 +151,45 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 67);
             this.panel1.TabIndex = 2;
+            // 
+            // btnBAEnable
+            // 
+            this.btnBAEnable.BackColor = System.Drawing.Color.LightPink;
+            this.btnBAEnable.FlatAppearance.BorderSize = 0;
+            this.btnBAEnable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBAEnable.Location = new System.Drawing.Point(711, 11);
+            this.btnBAEnable.Name = "btnBAEnable";
+            this.btnBAEnable.Size = new System.Drawing.Size(178, 44);
+            this.btnBAEnable.TabIndex = 12;
+            this.btnBAEnable.Text = "Book Author";
+            this.btnBAEnable.UseVisualStyleBackColor = false;
+            this.btnBAEnable.Click += new System.EventHandler(this.btnBAEnable_Click);
+            // 
+            // btnAuthorEnable
+            // 
+            this.btnAuthorEnable.BackColor = System.Drawing.Color.LightPink;
+            this.btnAuthorEnable.FlatAppearance.BorderSize = 0;
+            this.btnAuthorEnable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuthorEnable.Location = new System.Drawing.Point(512, 11);
+            this.btnAuthorEnable.Name = "btnAuthorEnable";
+            this.btnAuthorEnable.Size = new System.Drawing.Size(178, 44);
+            this.btnAuthorEnable.TabIndex = 12;
+            this.btnAuthorEnable.Text = "Author Operations";
+            this.btnAuthorEnable.UseVisualStyleBackColor = false;
+            this.btnAuthorEnable.Click += new System.EventHandler(this.btnAuthorEnable_Click);
+            // 
+            // btnBookEnable
+            // 
+            this.btnBookEnable.BackColor = System.Drawing.Color.LightPink;
+            this.btnBookEnable.FlatAppearance.BorderSize = 0;
+            this.btnBookEnable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBookEnable.Location = new System.Drawing.Point(313, 11);
+            this.btnBookEnable.Name = "btnBookEnable";
+            this.btnBookEnable.Size = new System.Drawing.Size(178, 44);
+            this.btnBookEnable.TabIndex = 12;
+            this.btnBookEnable.Text = "Book Operations";
+            this.btnBookEnable.UseVisualStyleBackColor = false;
+            this.btnBookEnable.Click += new System.EventHandler(this.btnBookEnable_Click);
             // 
             // label2
             // 
@@ -156,7 +205,9 @@
             // gbxBook
             // 
             this.gbxBook.BackColor = System.Drawing.Color.White;
-            this.gbxBook.Controls.Add(this.cmbAuthor);
+            this.gbxBook.Controls.Add(this.lblBookShow);
+            this.gbxBook.Controls.Add(this.label14);
+            this.gbxBook.Controls.Add(this.label13);
             this.gbxBook.Controls.Add(this.nudRating);
             this.gbxBook.Controls.Add(this.dtpPublDate);
             this.gbxBook.Controls.Add(this.txtPublisher);
@@ -166,7 +217,6 @@
             this.gbxBook.Controls.Add(this.txtBookTitle);
             this.gbxBook.Controls.Add(this.txtBookId);
             this.gbxBook.Controls.Add(this.label8);
-            this.gbxBook.Controls.Add(this.label7);
             this.gbxBook.Controls.Add(this.label16);
             this.gbxBook.Controls.Add(this.label6);
             this.gbxBook.Controls.Add(this.label5);
@@ -174,20 +224,34 @@
             this.gbxBook.Controls.Add(this.label3);
             this.gbxBook.Controls.Add(this.label1);
             this.gbxBook.Controls.Add(this.label9);
-            this.gbxBook.Location = new System.Drawing.Point(11, 65);
+            this.gbxBook.Location = new System.Drawing.Point(0, 65);
             this.gbxBook.Name = "gbxBook";
-            this.gbxBook.Size = new System.Drawing.Size(296, 375);
+            this.gbxBook.Size = new System.Drawing.Size(307, 375);
             this.gbxBook.TabIndex = 4;
             this.gbxBook.TabStop = false;
             this.gbxBook.Text = "Book";
             // 
-            // cmbAuthor
+            // label14
             // 
-            this.cmbAuthor.FormattingEnabled = true;
-            this.cmbAuthor.Location = new System.Drawing.Point(112, 197);
-            this.cmbAuthor.Name = "cmbAuthor";
-            this.cmbAuthor.Size = new System.Drawing.Size(174, 27);
-            this.cmbAuthor.TabIndex = 4;
+            this.label14.AutoSize = true;
+            this.label14.Enabled = false;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(152, 277);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Unavailable";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Enabled = false;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(152, 239);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 19);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Unavailable";
             // 
             // nudRating
             // 
@@ -281,15 +345,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "ISBN NO :";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(37, 203);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Author :";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -358,27 +413,37 @@
             // 
             // btnAddBook
             // 
+            this.btnAddBook.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddBook.FlatAppearance.BorderSize = 0;
+            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBook.ForeColor = System.Drawing.Color.White;
             this.btnAddBook.Location = new System.Drawing.Point(6, 26);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(129, 31);
             this.btnAddBook.TabIndex = 2;
             this.btnAddBook.Text = "Add Book";
-            this.btnAddBook.UseVisualStyleBackColor = true;
+            this.btnAddBook.UseVisualStyleBackColor = false;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // btnUpdateBook
             // 
+            this.btnUpdateBook.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateBook.FlatAppearance.BorderSize = 0;
+            this.btnUpdateBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateBook.ForeColor = System.Drawing.Color.White;
             this.btnUpdateBook.Location = new System.Drawing.Point(6, 63);
             this.btnUpdateBook.Name = "btnUpdateBook";
             this.btnUpdateBook.Size = new System.Drawing.Size(129, 31);
             this.btnUpdateBook.TabIndex = 2;
             this.btnUpdateBook.Text = "Update Book";
-            this.btnUpdateBook.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.UseVisualStyleBackColor = false;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
             // btnDeleteBook
             // 
             this.btnDeleteBook.BackColor = System.Drawing.Color.Red;
             this.btnDeleteBook.FlatAppearance.BorderSize = 0;
-            this.btnDeleteBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteBook.ForeColor = System.Drawing.Color.White;
             this.btnDeleteBook.Location = new System.Drawing.Point(6, 100);
             this.btnDeleteBook.Name = "btnDeleteBook";
@@ -386,52 +451,71 @@
             this.btnDeleteBook.TabIndex = 2;
             this.btnDeleteBook.Text = "Delete Book";
             this.btnDeleteBook.UseVisualStyleBackColor = false;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
             // dataGridView
             // 
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(11, 434);
+            this.dataGridView.Location = new System.Drawing.Point(0, 434);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1177, 274);
+            this.dataGridView.Size = new System.Drawing.Size(1200, 276);
             this.dataGridView.TabIndex = 5;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // btnGetAllBook
             // 
-            this.btnGetAllBook.Location = new System.Drawing.Point(6, 242);
+            this.btnGetAllBook.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetAllBook.FlatAppearance.BorderSize = 0;
+            this.btnGetAllBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetAllBook.ForeColor = System.Drawing.Color.White;
+            this.btnGetAllBook.Location = new System.Drawing.Point(6, 137);
             this.btnGetAllBook.Name = "btnGetAllBook";
             this.btnGetAllBook.Size = new System.Drawing.Size(129, 29);
             this.btnGetAllBook.TabIndex = 7;
             this.btnGetAllBook.Text = "List All Books";
-            this.btnGetAllBook.UseVisualStyleBackColor = true;
+            this.btnGetAllBook.UseVisualStyleBackColor = false;
+            this.btnGetAllBook.Click += new System.EventHandler(this.btnGetAllBook_Click);
             // 
             // btnListModifiedBook
             // 
+            this.btnListModifiedBook.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnListModifiedBook.Enabled = false;
+            this.btnListModifiedBook.FlatAppearance.BorderSize = 0;
+            this.btnListModifiedBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListModifiedBook.ForeColor = System.Drawing.Color.White;
             this.btnListModifiedBook.Location = new System.Drawing.Point(6, 207);
             this.btnListModifiedBook.Name = "btnListModifiedBook";
             this.btnListModifiedBook.Size = new System.Drawing.Size(129, 29);
             this.btnListModifiedBook.TabIndex = 8;
             this.btnListModifiedBook.Text = "List Modified Books";
-            this.btnListModifiedBook.UseVisualStyleBackColor = true;
+            this.btnListModifiedBook.UseVisualStyleBackColor = false;
             // 
             // btnPassiveListBook
             // 
-            this.btnPassiveListBook.Location = new System.Drawing.Point(6, 172);
+            this.btnPassiveListBook.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPassiveListBook.Enabled = false;
+            this.btnPassiveListBook.FlatAppearance.BorderSize = 0;
+            this.btnPassiveListBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPassiveListBook.ForeColor = System.Drawing.Color.White;
+            this.btnPassiveListBook.Location = new System.Drawing.Point(6, 245);
             this.btnPassiveListBook.Name = "btnPassiveListBook";
             this.btnPassiveListBook.Size = new System.Drawing.Size(129, 29);
             this.btnPassiveListBook.TabIndex = 9;
             this.btnPassiveListBook.Text = "List Passive Books";
-            this.btnPassiveListBook.UseVisualStyleBackColor = true;
+            this.btnPassiveListBook.UseVisualStyleBackColor = false;
             // 
             // btnActiveListBook
             // 
             this.btnActiveListBook.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnActiveListBook.Enabled = false;
             this.btnActiveListBook.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnActiveListBook.FlatAppearance.BorderSize = 0;
-            this.btnActiveListBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActiveListBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActiveListBook.ForeColor = System.Drawing.Color.White;
-            this.btnActiveListBook.Location = new System.Drawing.Point(6, 137);
+            this.btnActiveListBook.Location = new System.Drawing.Point(6, 172);
             this.btnActiveListBook.Name = "btnActiveListBook";
             this.btnActiveListBook.Size = new System.Drawing.Size(129, 29);
             this.btnActiveListBook.TabIndex = 10;
@@ -441,7 +525,9 @@
             // gbxFindByTitle
             // 
             this.gbxFindByTitle.Controls.Add(this.txtFindByTitle);
-            this.gbxFindByTitle.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.gbxFindByTitle.Enabled = false;
+            this.gbxFindByTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbxFindByTitle.ForeColor = System.Drawing.Color.Black;
             this.gbxFindByTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.gbxFindByTitle.Location = new System.Drawing.Point(6, 277);
             this.gbxFindByTitle.Name = "gbxFindByTitle";
@@ -452,6 +538,7 @@
             // 
             // txtFindByTitle
             // 
+            this.txtFindByTitle.Enabled = false;
             this.txtFindByTitle.Location = new System.Drawing.Point(6, 26);
             this.txtFindByTitle.Name = "txtFindByTitle";
             this.txtFindByTitle.Size = new System.Drawing.Size(117, 27);
@@ -460,23 +547,26 @@
             // 
             // gbxBookOpr
             // 
+            this.gbxBookOpr.Controls.Add(this.lblBookOpShow);
+            this.gbxBookOpr.Controls.Add(this.btnActiveListBook);
             this.gbxBookOpr.Controls.Add(this.btnAddBook);
             this.gbxBookOpr.Controls.Add(this.gbxFindByTitle);
             this.gbxBookOpr.Controls.Add(this.btnDeleteBook);
             this.gbxBookOpr.Controls.Add(this.btnGetAllBook);
             this.gbxBookOpr.Controls.Add(this.btnUpdateBook);
             this.gbxBookOpr.Controls.Add(this.btnListModifiedBook);
-            this.gbxBookOpr.Controls.Add(this.btnActiveListBook);
             this.gbxBookOpr.Controls.Add(this.btnPassiveListBook);
-            this.gbxBookOpr.Location = new System.Drawing.Point(313, 65);
+            this.gbxBookOpr.Location = new System.Drawing.Point(303, 65);
             this.gbxBookOpr.Name = "gbxBookOpr";
-            this.gbxBookOpr.Size = new System.Drawing.Size(142, 375);
+            this.gbxBookOpr.Size = new System.Drawing.Size(165, 375);
             this.gbxBookOpr.TabIndex = 12;
             this.gbxBookOpr.TabStop = false;
             this.gbxBookOpr.Text = "Book Operations";
             // 
             // gbxAuthor
             // 
+            this.gbxAuthor.Controls.Add(this.label17);
+            this.gbxAuthor.Controls.Add(this.label15);
             this.gbxAuthor.Controls.Add(this.txtAuthorId);
             this.gbxAuthor.Controls.Add(this.label10);
             this.gbxAuthor.Controls.Add(this.lblLastName);
@@ -492,8 +582,29 @@
             this.gbxAuthor.TabStop = false;
             this.gbxAuthor.Text = "Author";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(162, 125);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(90, 19);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Unavailable";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(162, 92);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 19);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Unavailable";
+            // 
             // txtAuthorId
             // 
+            this.txtAuthorId.BackColor = System.Drawing.Color.White;
             this.txtAuthorId.Location = new System.Drawing.Point(124, 20);
             this.txtAuthorId.Name = "txtAuthorId";
             this.txtAuthorId.Size = new System.Drawing.Size(171, 27);
@@ -539,6 +650,7 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.BackColor = System.Drawing.Color.White;
             this.txtLastName.Enabled = false;
             this.txtLastName.ForeColor = System.Drawing.Color.Red;
             this.txtLastName.Location = new System.Drawing.Point(124, 122);
@@ -550,6 +662,7 @@
             // 
             // txtMiddleName
             // 
+            this.txtMiddleName.BackColor = System.Drawing.Color.White;
             this.txtMiddleName.Enabled = false;
             this.txtMiddleName.ForeColor = System.Drawing.Color.Red;
             this.txtMiddleName.Location = new System.Drawing.Point(124, 89);
@@ -561,6 +674,7 @@
             // 
             // txtFirstName
             // 
+            this.txtFirstName.BackColor = System.Drawing.Color.White;
             this.txtFirstName.Location = new System.Drawing.Point(124, 56);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(171, 27);
@@ -597,24 +711,24 @@
             this.btnAddAuthor.Text = "Add Author";
             this.btnAddAuthor.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbxAuthorOpr
             // 
-            this.groupBox1.Controls.Add(this.btnUpdateAuthor);
-            this.groupBox1.Controls.Add(this.btnDeleteAuthor);
-            this.groupBox1.Controls.Add(this.btnAddAuthor);
-            this.groupBox1.Controls.Add(this.btnGetAllAuthor);
-            this.groupBox1.Controls.Add(this.btnListActiveAuthors);
-            this.groupBox1.Controls.Add(this.btnListPassiveAuthors);
-            this.groupBox1.Location = new System.Drawing.Point(886, 65);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 156);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Author Operations";
+            this.gbxAuthorOpr.Controls.Add(this.btnUpdateAuthor);
+            this.gbxAuthorOpr.Controls.Add(this.btnListActiveAuthors);
+            this.gbxAuthorOpr.Controls.Add(this.btnDeleteAuthor);
+            this.gbxAuthorOpr.Controls.Add(this.btnAddAuthor);
+            this.gbxAuthorOpr.Controls.Add(this.btnGetAllAuthor);
+            this.gbxAuthorOpr.Controls.Add(this.btnListPassiveAuthors);
+            this.gbxAuthorOpr.Location = new System.Drawing.Point(886, 65);
+            this.gbxAuthorOpr.Name = "gbxAuthorOpr";
+            this.gbxAuthorOpr.Size = new System.Drawing.Size(302, 156);
+            this.gbxAuthorOpr.TabIndex = 14;
+            this.gbxAuthorOpr.TabStop = false;
+            this.gbxAuthorOpr.Text = "Author Operations";
             // 
             // btnGetAllAuthor
             // 
-            this.btnGetAllAuthor.Location = new System.Drawing.Point(151, 110);
+            this.btnGetAllAuthor.Location = new System.Drawing.Point(151, 34);
             this.btnGetAllAuthor.Name = "btnGetAllAuthor";
             this.btnGetAllAuthor.Size = new System.Drawing.Size(129, 29);
             this.btnGetAllAuthor.TabIndex = 7;
@@ -624,11 +738,12 @@
             // btnListActiveAuthors
             // 
             this.btnListActiveAuthors.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnListActiveAuthors.Enabled = false;
             this.btnListActiveAuthors.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListActiveAuthors.FlatAppearance.BorderSize = 0;
             this.btnListActiveAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnListActiveAuthors.ForeColor = System.Drawing.Color.White;
-            this.btnListActiveAuthors.Location = new System.Drawing.Point(151, 36);
+            this.btnListActiveAuthors.Location = new System.Drawing.Point(151, 109);
             this.btnListActiveAuthors.Name = "btnListActiveAuthors";
             this.btnListActiveAuthors.Size = new System.Drawing.Size(129, 29);
             this.btnListActiveAuthors.TabIndex = 10;
@@ -637,6 +752,7 @@
             // 
             // btnListPassiveAuthors
             // 
+            this.btnListPassiveAuthors.Enabled = false;
             this.btnListPassiveAuthors.Location = new System.Drawing.Point(151, 71);
             this.btnListPassiveAuthors.Name = "btnListPassiveAuthors";
             this.btnListPassiveAuthors.Size = new System.Drawing.Size(129, 29);
@@ -647,9 +763,9 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(461, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(461, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 440);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(102, 375);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
             // flowLayoutPanel2
@@ -674,6 +790,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(6, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(607, 27);
@@ -682,6 +799,7 @@
             // 
             // cmbBookList
             // 
+            this.cmbBookList.BackColor = System.Drawing.Color.White;
             this.cmbBookList.FormattingEnabled = true;
             this.cmbBookList.Location = new System.Drawing.Point(10, 43);
             this.cmbBookList.Name = "cmbBookList";
@@ -737,6 +855,7 @@
             // 
             // cmbAuthorList
             // 
+            this.cmbAuthorList.BackColor = System.Drawing.Color.White;
             this.cmbAuthorList.FormattingEnabled = true;
             this.cmbAuthorList.Location = new System.Drawing.Point(240, 43);
             this.cmbAuthorList.Name = "cmbAuthorList";
@@ -757,12 +876,28 @@
             this.btnActiveBookAuthors.Text = "List Active Books";
             this.btnActiveBookAuthors.UseVisualStyleBackColor = false;
             // 
+            // lblBookShow
+            // 
+            this.lblBookShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblBookShow.Location = new System.Drawing.Point(0, 0);
+            this.lblBookShow.Name = "lblBookShow";
+            this.lblBookShow.Size = new System.Drawing.Size(309, 374);
+            this.lblBookShow.TabIndex = 12;
+            // 
+            // lblBookOpShow
+            // 
+            this.lblBookOpShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblBookOpShow.Location = new System.Drawing.Point(-4, 0);
+            this.lblBookOpShow.Name = "lblBookOpShow";
+            this.lblBookOpShow.Size = new System.Drawing.Size(163, 378);
+            this.lblBookOpShow.TabIndex = 12;
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.ClientSize = new System.Drawing.Size(1200, 709);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.gbxFindByName);
             this.Controls.Add(this.dataGridView);
@@ -771,7 +906,7 @@
             this.Controls.Add(this.gbxBook);
             this.Controls.Add(this.gbxBookOpr);
             this.Controls.Add(this.gbxAuthor);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbxAuthorOpr);
             this.Controls.Add(this.gbxBookAuthor);
             this.Font = new System.Drawing.Font("NewsGoth BT", 12F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -779,6 +914,7 @@
             this.Name = "FormDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDashboard";
+            this.Load += new System.EventHandler(this.FormDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -791,7 +927,7 @@
             this.gbxBookOpr.ResumeLayout(false);
             this.gbxAuthor.ResumeLayout(false);
             this.gbxAuthor.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.gbxAuthorOpr.ResumeLayout(false);
             this.gbxFindByName.ResumeLayout(false);
             this.gbxFindByName.PerformLayout();
             this.gbxBookAuthor.ResumeLayout(false);
@@ -807,7 +943,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbxBook;
-        private System.Windows.Forms.ComboBox cmbAuthor;
         private System.Windows.Forms.NumericUpDown nudRating;
         private System.Windows.Forms.DateTimePicker dtpPublDate;
         private System.Windows.Forms.TextBox txtPublisher;
@@ -817,7 +952,6 @@
         private System.Windows.Forms.TextBox txtBookTitle;
         private System.Windows.Forms.TextBox txtBookId;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -848,7 +982,7 @@
         private System.Windows.Forms.Button btnUpdateAuthor;
         private System.Windows.Forms.Button btnDeleteAuthor;
         private System.Windows.Forms.Button btnAddAuthor;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxAuthorOpr;
         private System.Windows.Forms.Button btnGetAllAuthor;
         private System.Windows.Forms.Button btnListActiveAuthors;
         private System.Windows.Forms.Button btnListPassiveAuthors;
@@ -863,5 +997,14 @@
         private System.Windows.Forms.GroupBox gbxBookAuthor;
         private System.Windows.Forms.ComboBox cmbAuthorList;
         private System.Windows.Forms.Button btnActiveBookAuthors;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnBAEnable;
+        private System.Windows.Forms.Button btnAuthorEnable;
+        private System.Windows.Forms.Button btnBookEnable;
+        private System.Windows.Forms.Label lblBookShow;
+        private System.Windows.Forms.Label lblBookOpShow;
     }
 }
