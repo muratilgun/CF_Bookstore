@@ -32,6 +32,8 @@ namespace CF_Bookstore.UI
         private void FormDashboard_Load(object sender, EventArgs e)
         {
             dataGridView.DataSource = null;
+            dataGridView.Visible = false;
+            dataGridView2.Visible = false;
             gbxBook.Enabled = false;
             gbxBookOpr.Enabled = false;
             gbxAuthor.Enabled = false;
@@ -43,12 +45,16 @@ namespace CF_Bookstore.UI
         //datagridview -->
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtBookId.Text = dataGridView.CurrentRow.Cells[0].Value.ToString();
-            txtBookTitle.Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
-            txtTotalPages.Text = dataGridView.CurrentRow.Cells[2].Value.ToString();
-            nudRating.Value = Convert.ToDecimal(dataGridView.CurrentRow.Cells[3].Value.ToString());
-            txtISBN.Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
-
+                txtBookId.Text = dataGridView.CurrentRow.Cells[0].Value.ToString();
+                txtBookTitle.Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
+                txtTotalPages.Text = dataGridView.CurrentRow.Cells[2].Value.ToString();
+                nudRating.Value = Convert.ToDecimal(dataGridView.CurrentRow.Cells[3].Value.ToString());
+                txtISBN.Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtAuthorId.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            txtFirstName.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
         }
         //clear gboxes 
         void ResetAll(GroupBox gbox)
@@ -111,10 +117,12 @@ namespace CF_Bookstore.UI
             ResetAll(gbxBook);
             dataGridView.DataSource = pc.Books.ToList();
         }
+
+
         //Update Book
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to update this row?", "Update Row", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to update this database?", "Update Database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 int id = Convert.ToInt32(txtBookId.Text);
@@ -128,7 +136,7 @@ namespace CF_Bookstore.UI
             }
             else
             {
-                MessageBox.Show("Row Not Updated", "Update Row", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Database Not Updated", "Update Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             ResetAll(gbxBook);
@@ -163,16 +171,22 @@ namespace CF_Bookstore.UI
         }
         #endregion
 
-
         #region Enable_Buttons
         private void btnBookEnable_Click(object sender, EventArgs e)
         {
-            btnBookEnable.BackColor = Color.LightGreen;
-            btnAuthorEnable.BackColor = Color.LightPink;
-            btnBAEnable.BackColor = Color.LightPink;
+            lblAuthorEnable1.Visible = true;
+            lblAuthorEnable2.Visible = true;
+            lblAuthorEnable3.Visible = true;
             lblBookOpShow.Visible = false;
             lblBookShow.Visible = false;
+
+            btnBookEnable.BackColor = Color.LightGreen;
+            btnAuthorEnable.BackColor = Color.LightPink;
+            btnBAEnable.BackColor = Color.LightPink;         
+            dataGridView.Visible = true;
+            dataGridView2.Visible = false;
             dataGridView.DataSource = null;
+            dataGridView2.DataSource = null;
             gbxBook.Enabled = true;
             gbxBookOpr.Enabled = true;
             gbxAuthor.Enabled = false;
@@ -190,12 +204,20 @@ namespace CF_Bookstore.UI
 
         private void btnAuthorEnable_Click(object sender, EventArgs e)
         {
+            lblAuthorEnable1.Visible = false;
+            lblAuthorEnable2.Visible = false;
+            lblAuthorEnable3.Visible = false;
+            lblBookOpShow.Visible = true;
+            lblBookShow.Visible = true;
+            dataGridView2.Visible = true;
+            dataGridView.Visible = false;
             btnBookEnable.BackColor = Color.LightPink;
             btnAuthorEnable.BackColor = Color.LightGreen;
             btnBAEnable.BackColor = Color.LightPink;
             lblBookOpShow.Visible = true;
             lblBookShow.Visible = true;
             dataGridView.DataSource = null;
+            dataGridView2.DataSource = null;
             gbxBook.Enabled = false;
             gbxBookOpr.Enabled = false;
             gbxAuthor.Enabled = true;
@@ -212,6 +234,11 @@ namespace CF_Bookstore.UI
 
         private void btnBAEnable_Click(object sender, EventArgs e)
         {
+            lblAuthorEnable1.Visible = true;
+            lblAuthorEnable2.Visible = true;
+            lblAuthorEnable3.Visible = true;
+            lblBookOpShow.Visible = true;
+            lblBookShow.Visible = true;
             btnBookEnable.BackColor = Color.LightPink;
             btnAuthorEnable.BackColor = Color.LightPink;
             btnBAEnable.BackColor = Color.LightGreen; 
@@ -230,6 +257,81 @@ namespace CF_Bookstore.UI
             ResetAll(gbxFindByTitle);
         }
         #endregion
+
+        #region Author_Operations
+        //Add Author
+        private void btnAddAuthor_Click(object sender, EventArgs e)
+        {
+            author.AuthorId = Convert.ToInt32(txtAuthorId.Text);
+            author.FullName = txtFirstName.Text;
+            pc.Authors.Add(author);
+            pc.SaveChanges();
+            ResetAll(gbxAuthor);
+            dataGridView2.DataSource = pc.Authors.ToList();
+        }
+        //Update Author
+        private void btnUpdateAuthor_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to update this database?", "Update Database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                int id = Convert.ToInt32(txtAuthorId.Text);
+                var update = pc.Authors.Where(x => x.AuthorId == id).FirstOrDefault();
+                update.AuthorId = Convert.ToInt32(txtAuthorId.Text);
+                update.FullName = txtFirstName.Text;
+                pc.SaveChanges();
+
+            }
+            else
+            {
+                MessageBox.Show("Database Not Updated", "Update Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            ResetAll(gbxAuthor);
+            dataGridView2.DataSource = pc.Authors.ToList();
+        }
+        //Delete Author
+        private void btnDeleteAuthor_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value.ToString());
+            var delete = pc.Authors.Where(x => x.AuthorId == id).FirstOrDefault();
+
+            if (MessageBox.Show("Do you want to delete this row?", "Remove Row", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                pc.Authors.Remove(delete);
+                pc.SaveChanges();
+
+            }
+            else
+            {
+                MessageBox.Show("Row Not Removed", "Remove Row", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            ResetAll(gbxAuthor);
+            dataGridView2.DataSource = pc.Authors.ToList();
+        }
+        //Get All Author
+        private void btnGetAllAuthor_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = pc.Authors.ToList();
+            ResetAll(gbxAuthor);
+        }
+        //find by name
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var search = from x in pc.Authors select x;
+            if (textBox1.Text != null)
+            {
+                dataGridView2.DataSource = search.Where(x => x.FullName.Contains(textBox1.Text)).ToList();
+            }
+        }
+
+        #endregion
+
+        #region BookAuthor_Operations
+
+        #endregion
+
 
     }
 }

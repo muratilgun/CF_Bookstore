@@ -76,7 +76,6 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.btnUpdateAuthor = new System.Windows.Forms.Button();
             this.btnDeleteAuthor = new System.Windows.Forms.Button();
             this.btnAddAuthor = new System.Windows.Forms.Button();
             this.gbxAuthorOpr = new System.Windows.Forms.GroupBox();
@@ -96,6 +95,11 @@
             this.btnActiveBookAuthors = new System.Windows.Forms.Button();
             this.lblBookShow = new System.Windows.Forms.Label();
             this.lblBookOpShow = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.lblAuthorEnable1 = new System.Windows.Forms.Label();
+            this.btnUpdateAuthor = new System.Windows.Forms.Button();
+            this.lblAuthorEnable2 = new System.Windows.Forms.Label();
+            this.lblAuthorEnable3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbxBook.SuspendLayout();
@@ -107,6 +111,7 @@
             this.gbxAuthorOpr.SuspendLayout();
             this.gbxFindByName.SuspendLayout();
             this.gbxBookAuthor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
@@ -565,6 +570,7 @@
             // 
             // gbxAuthor
             // 
+            this.gbxAuthor.Controls.Add(this.lblAuthorEnable1);
             this.gbxAuthor.Controls.Add(this.label17);
             this.gbxAuthor.Controls.Add(this.label15);
             this.gbxAuthor.Controls.Add(this.txtAuthorId);
@@ -575,9 +581,9 @@
             this.gbxAuthor.Controls.Add(this.txtLastName);
             this.gbxAuthor.Controls.Add(this.txtMiddleName);
             this.gbxAuthor.Controls.Add(this.txtFirstName);
-            this.gbxAuthor.Location = new System.Drawing.Point(569, 65);
+            this.gbxAuthor.Location = new System.Drawing.Point(552, 65);
             this.gbxAuthor.Name = "gbxAuthor";
-            this.gbxAuthor.Size = new System.Drawing.Size(307, 156);
+            this.gbxAuthor.Size = new System.Drawing.Size(324, 156);
             this.gbxAuthor.TabIndex = 13;
             this.gbxAuthor.TabStop = false;
             this.gbxAuthor.Text = "Author";
@@ -585,6 +591,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Enabled = false;
             this.label17.ForeColor = System.Drawing.Color.Red;
             this.label17.Location = new System.Drawing.Point(162, 125);
             this.label17.Name = "label17";
@@ -595,6 +602,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Enabled = false;
             this.label15.ForeColor = System.Drawing.Color.Red;
             this.label15.Location = new System.Drawing.Point(162, 92);
             this.label15.Name = "label15";
@@ -609,6 +617,7 @@
             this.txtAuthorId.Name = "txtAuthorId";
             this.txtAuthorId.Size = new System.Drawing.Size(171, 27);
             this.txtAuthorId.TabIndex = 3;
+            this.txtAuthorId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -679,21 +688,13 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(171, 27);
             this.txtFirstName.TabIndex = 0;
-            // 
-            // btnUpdateAuthor
-            // 
-            this.btnUpdateAuthor.Location = new System.Drawing.Point(6, 71);
-            this.btnUpdateAuthor.Name = "btnUpdateAuthor";
-            this.btnUpdateAuthor.Size = new System.Drawing.Size(139, 31);
-            this.btnUpdateAuthor.TabIndex = 2;
-            this.btnUpdateAuthor.Text = "Update Author";
-            this.btnUpdateAuthor.UseVisualStyleBackColor = true;
+            this.txtFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnDeleteAuthor
             // 
             this.btnDeleteAuthor.BackColor = System.Drawing.Color.Red;
             this.btnDeleteAuthor.FlatAppearance.BorderSize = 0;
-            this.btnDeleteAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAuthor.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAuthor.Location = new System.Drawing.Point(6, 108);
             this.btnDeleteAuthor.Name = "btnDeleteAuthor";
@@ -701,39 +702,51 @@
             this.btnDeleteAuthor.TabIndex = 2;
             this.btnDeleteAuthor.Text = "Delete Author";
             this.btnDeleteAuthor.UseVisualStyleBackColor = false;
+            this.btnDeleteAuthor.Click += new System.EventHandler(this.btnDeleteAuthor_Click);
             // 
             // btnAddAuthor
             // 
+            this.btnAddAuthor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddAuthor.FlatAppearance.BorderSize = 0;
+            this.btnAddAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAuthor.ForeColor = System.Drawing.Color.White;
             this.btnAddAuthor.Location = new System.Drawing.Point(6, 34);
             this.btnAddAuthor.Name = "btnAddAuthor";
             this.btnAddAuthor.Size = new System.Drawing.Size(139, 31);
             this.btnAddAuthor.TabIndex = 2;
             this.btnAddAuthor.Text = "Add Author";
-            this.btnAddAuthor.UseVisualStyleBackColor = true;
+            this.btnAddAuthor.UseVisualStyleBackColor = false;
+            this.btnAddAuthor.Click += new System.EventHandler(this.btnAddAuthor_Click);
             // 
             // gbxAuthorOpr
             // 
+            this.gbxAuthorOpr.Controls.Add(this.lblAuthorEnable2);
             this.gbxAuthorOpr.Controls.Add(this.btnUpdateAuthor);
             this.gbxAuthorOpr.Controls.Add(this.btnListActiveAuthors);
             this.gbxAuthorOpr.Controls.Add(this.btnDeleteAuthor);
             this.gbxAuthorOpr.Controls.Add(this.btnAddAuthor);
             this.gbxAuthorOpr.Controls.Add(this.btnGetAllAuthor);
             this.gbxAuthorOpr.Controls.Add(this.btnListPassiveAuthors);
-            this.gbxAuthorOpr.Location = new System.Drawing.Point(886, 65);
+            this.gbxAuthorOpr.Location = new System.Drawing.Point(873, 65);
             this.gbxAuthorOpr.Name = "gbxAuthorOpr";
-            this.gbxAuthorOpr.Size = new System.Drawing.Size(302, 156);
+            this.gbxAuthorOpr.Size = new System.Drawing.Size(333, 156);
             this.gbxAuthorOpr.TabIndex = 14;
             this.gbxAuthorOpr.TabStop = false;
             this.gbxAuthorOpr.Text = "Author Operations";
             // 
             // btnGetAllAuthor
             // 
+            this.btnGetAllAuthor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGetAllAuthor.FlatAppearance.BorderSize = 0;
+            this.btnGetAllAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetAllAuthor.ForeColor = System.Drawing.Color.White;
             this.btnGetAllAuthor.Location = new System.Drawing.Point(151, 34);
             this.btnGetAllAuthor.Name = "btnGetAllAuthor";
             this.btnGetAllAuthor.Size = new System.Drawing.Size(129, 29);
             this.btnGetAllAuthor.TabIndex = 7;
             this.btnGetAllAuthor.Text = "List All Authors";
-            this.btnGetAllAuthor.UseVisualStyleBackColor = true;
+            this.btnGetAllAuthor.UseVisualStyleBackColor = false;
+            this.btnGetAllAuthor.Click += new System.EventHandler(this.btnGetAllAuthor_Click);
             // 
             // btnListActiveAuthors
             // 
@@ -741,7 +754,7 @@
             this.btnListActiveAuthors.Enabled = false;
             this.btnListActiveAuthors.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnListActiveAuthors.FlatAppearance.BorderSize = 0;
-            this.btnListActiveAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnListActiveAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListActiveAuthors.ForeColor = System.Drawing.Color.White;
             this.btnListActiveAuthors.Location = new System.Drawing.Point(151, 109);
             this.btnListActiveAuthors.Name = "btnListActiveAuthors";
@@ -752,13 +765,17 @@
             // 
             // btnListPassiveAuthors
             // 
+            this.btnListPassiveAuthors.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnListPassiveAuthors.Enabled = false;
+            this.btnListPassiveAuthors.FlatAppearance.BorderSize = 0;
+            this.btnListPassiveAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListPassiveAuthors.ForeColor = System.Drawing.Color.White;
             this.btnListPassiveAuthors.Location = new System.Drawing.Point(151, 71);
             this.btnListPassiveAuthors.Name = "btnListPassiveAuthors";
             this.btnListPassiveAuthors.Size = new System.Drawing.Size(129, 29);
             this.btnListPassiveAuthors.TabIndex = 9;
             this.btnListPassiveAuthors.Text = "List Passive Books";
-            this.btnListPassiveAuthors.UseVisualStyleBackColor = true;
+            this.btnListPassiveAuthors.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -778,12 +795,13 @@
             // 
             // gbxFindByName
             // 
+            this.gbxFindByName.Controls.Add(this.lblAuthorEnable3);
             this.gbxFindByName.Controls.Add(this.textBox1);
             this.gbxFindByName.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.gbxFindByName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gbxFindByName.Location = new System.Drawing.Point(569, 227);
+            this.gbxFindByName.Location = new System.Drawing.Point(562, 220);
             this.gbxFindByName.Name = "gbxFindByName";
-            this.gbxFindByName.Size = new System.Drawing.Size(619, 66);
+            this.gbxFindByName.Size = new System.Drawing.Size(638, 73);
             this.gbxFindByName.TabIndex = 11;
             this.gbxFindByName.TabStop = false;
             this.gbxFindByName.Text = "Find By Name";
@@ -796,6 +814,7 @@
             this.textBox1.Size = new System.Drawing.Size(607, 27);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cmbBookList
             // 
@@ -887,10 +906,60 @@
             // lblBookOpShow
             // 
             this.lblBookOpShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lblBookOpShow.Location = new System.Drawing.Point(-4, 0);
+            this.lblBookOpShow.Location = new System.Drawing.Point(-4, -7);
             this.lblBookOpShow.Name = "lblBookOpShow";
-            this.lblBookOpShow.Size = new System.Drawing.Size(163, 378);
+            this.lblBookOpShow.Size = new System.Drawing.Size(163, 417);
             this.lblBookOpShow.TabIndex = 12;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 434);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(1200, 276);
+            this.dataGridView2.TabIndex = 16;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // lblAuthorEnable1
+            // 
+            this.lblAuthorEnable1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblAuthorEnable1.Location = new System.Drawing.Point(-13, -7);
+            this.lblAuthorEnable1.Name = "lblAuthorEnable1";
+            this.lblAuthorEnable1.Size = new System.Drawing.Size(350, 163);
+            this.lblAuthorEnable1.TabIndex = 13;
+            // 
+            // btnUpdateAuthor
+            // 
+            this.btnUpdateAuthor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateAuthor.FlatAppearance.BorderSize = 0;
+            this.btnUpdateAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateAuthor.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateAuthor.Location = new System.Drawing.Point(6, 71);
+            this.btnUpdateAuthor.Name = "btnUpdateAuthor";
+            this.btnUpdateAuthor.Size = new System.Drawing.Size(139, 31);
+            this.btnUpdateAuthor.TabIndex = 2;
+            this.btnUpdateAuthor.Text = "Update Author";
+            this.btnUpdateAuthor.UseVisualStyleBackColor = false;
+            this.btnUpdateAuthor.Click += new System.EventHandler(this.btnUpdateAuthor_Click);
+            // 
+            // lblAuthorEnable2
+            // 
+            this.lblAuthorEnable2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblAuthorEnable2.Location = new System.Drawing.Point(-45, -116);
+            this.lblAuthorEnable2.Name = "lblAuthorEnable2";
+            this.lblAuthorEnable2.Size = new System.Drawing.Size(441, 374);
+            this.lblAuthorEnable2.TabIndex = 14;
+            // 
+            // lblAuthorEnable3
+            // 
+            this.lblAuthorEnable3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblAuthorEnable3.Location = new System.Drawing.Point(-10, 0);
+            this.lblAuthorEnable3.Name = "lblAuthorEnable3";
+            this.lblAuthorEnable3.Size = new System.Drawing.Size(648, 73);
+            this.lblAuthorEnable3.TabIndex = 15;
             // 
             // FormDashboard
             // 
@@ -898,6 +967,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 709);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.gbxFindByName);
             this.Controls.Add(this.dataGridView);
@@ -932,6 +1002,7 @@
             this.gbxFindByName.PerformLayout();
             this.gbxBookAuthor.ResumeLayout(false);
             this.gbxBookAuthor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -979,7 +1050,6 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Button btnUpdateAuthor;
         private System.Windows.Forms.Button btnDeleteAuthor;
         private System.Windows.Forms.Button btnAddAuthor;
         private System.Windows.Forms.GroupBox gbxAuthorOpr;
@@ -1006,5 +1076,10 @@
         private System.Windows.Forms.Button btnBookEnable;
         private System.Windows.Forms.Label lblBookShow;
         private System.Windows.Forms.Label lblBookOpShow;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label lblAuthorEnable1;
+        private System.Windows.Forms.Label lblAuthorEnable2;
+        private System.Windows.Forms.Button btnUpdateAuthor;
+        private System.Windows.Forms.Label lblAuthorEnable3;
     }
 }
